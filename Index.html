@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estante Solidária</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full bg-gray-800/90 backdrop-blur-md z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold text-white">Estante Solidária</h1>
+    </div>
+  </header>
+
+  <!-- Hero / Formulário -->
+  <main class="pt-24 flex flex-col items-center px-4">
+    <section class="bg-pink-300 rounded-xl shadow-lg p-6 w-full max-w-md mb-12">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800 text-center">Cadastre o Livro que Deseja Doar</h2>
+
+      <form action="https://docs.google.com/forms/d/e/SEU_ID_DO_FORM/formResponse" method="POST" target="_blank" class="flex flex-col gap-4">
+        <!-- Título do Livro -->
+        <input
+          type="text"
+          name="entry.123456"
+          placeholder="Ex: Dom Casmurro"
+          required
+          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
+        />
+        <!-- Autor -->
+        <input
+          type="text"
+          name="entry.654321"
+          placeholder="Ex: Machado de Assis"
+          required
+          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
+        />
+        <!-- Nome do Doador -->
+        <input
+          type="text"
+          name="entry.987654"
+          placeholder="Ex: Maria dos Santos"
+          required
+          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
+        />
+        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-lg h-12 transition">
+          Cadastrar Livro
+        </button>
+      </form>
+    </section>
+
+    <!-- Livros Disponíveis -->
+    <section class="w-full max-w-md">
+      <h2 class="text-2xl font-bold mb-4 text-center text-pink-500">Livros Disponíveis</h2>
+      <ul id="livros" class="flex flex-col gap-2 text-gray-700 text-center">
+        <!-- Aqui você poderá gerar os livros via JavaScript se quiser -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 py-6 text-center text-gray-500">
+    <p>&copy; 2025 Estante Solidária. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
