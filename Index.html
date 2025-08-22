@@ -22,7 +22,7 @@
     <section class="bg-pink-300 rounded-xl shadow-lg p-6 w-full max-w-md mb-12">
       <h2 class="text-2xl font-bold mb-4 text-gray-800 text-center">Cadastre o Livro que Deseja Doar</h2>
 
-      <form action="https://docs.google.com/forms/d/e/SEU_ID_DO_FORM/formResponse" method="POST" target="_blank" class="flex flex-col gap-4">
+      <form id="formLivro" action="https://docs.google.com/forms/d/e/SEU_ID_DO_FORM/formResponse" method="POST" target="_blank" class="flex flex-col gap-4">
         <!-- Título do Livro -->
         <input
           type="text"
@@ -57,7 +57,7 @@
     <section class="w-full max-w-md">
       <h2 class="text-2xl font-bold mb-4 text-center text-pink-500">Livros Disponíveis</h2>
       <ul id="livros" class="flex flex-col gap-2 text-gray-700 text-center">
-        <!-- Aqui você poderá gerar os livros via JavaScript se quiser -->
+        <!-- Livros adicionados dinamicamente -->
       </ul>
     </section>
   </main>
@@ -66,6 +66,35 @@
   <footer class="mt-12 py-6 text-center text-gray-500">
     <p>&copy; 2025 Estante Solidária. Todos os direitos reservados.</p>
   </footer>
+
+  <!-- JavaScript para atualizar a lista instantaneamente -->
+  <script>
+    const form = document.getElementById('formLivro');
+    const listaLivros = document.getElementById('livros');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o reload da página
+
+      // Pega os valores do formulário
+      const titulo = form.elements['entry.123456'].value;
+      const autor = form.elements['entry.654321'].value;
+      const doador = form.elements['entry.987654'].value;
+
+      // Cria o item da lista
+      const li = document.createElement('li');
+      li.className = "bg-white rounded-lg shadow p-2";
+      li.textContent = `${titulo} — ${autor} (Doador: ${doador})`;
+
+      // Adiciona na lista
+      listaLivros.appendChild(li);
+
+      // Limpa o formulário
+      form.reset();
+
+      // Envia os dados para o Google Forms
+      form.submit();
+    });
+  </script>
 
 </body>
 </html>
