@@ -1,100 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Estante Solidária</title>
-
-  <!-- TailwindCSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AstroShield</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-[#1E1E1E] flex justify-center items-center min-h-screen">
+  
+  <!-- Container principal -->
+  <div class="w-[1200px] h-[700px] bg-gradient-to-b from-[#7d8ca4] to-[#c2c9d8] shadow-xl rounded-lg flex flex-col">
+    
+    <!-- HEADER -->
+    <header class="w-full h-[60px] bg-[#4c5d75] flex items-center justify-between px-6">
+      <!-- Menu -->
+      <nav class="flex gap-8 text-white font-semibold">
+        <a href="#" class="hover:underline">simulação</a>
+        <a href="#" class="hover:underline">sobre</a>
+        <a href="#" class="hover:underline">ajuda</a>
+      </nav>
+      <!-- Logo -->
+      <h1 class="text-white font-bold text-xl">ASTROSHIELD</h1>
+    </header>
 
-  <!-- Header -->
-  <header class="fixed top-0 w-full bg-gray-800/90 backdrop-blur-md z-50">
-    <div class="max-w-6xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-white">Estante Solidária</h1>
+    <!-- CORPO -->
+    <div class="flex flex-1">
+      
+      <!-- Sidebar esquerda -->
+      <aside class="w-[200px] bg-gradient-to-b from-[#c2c9d8] to-[#7d8ca4] p-4 flex flex-col justify-between">
+        <div class="h-[100px] bg-white/20 rounded"></div>
+        <div class="h-[100px] bg-white/20 rounded"></div>
+        <div class="h-[100px] bg-white/20 rounded"></div>
+      </aside>
+
+      <!-- Conteúdo central -->
+      <main class="flex-1 flex justify-center items-center bg-[#d9d9d9]">
+        <div class="w-[500px] h-[400px] bg-gray-300 rounded shadow-inner"></div>
+      </main>
+
+      <!-- Sidebar direita -->
+      <aside class="w-[200px] bg-gradient-to-b from-[#c2c9d8] to-[#7d8ca4] p-4 flex flex-col justify-between">
+        <div class="h-[100px] bg-white/20 rounded"></div>
+        <div class="h-[100px] bg-white/20 rounded"></div>
+        <div class="h-[100px] bg-white/20 rounded"></div>
+      </aside>
+
     </div>
-  </header>
-
-  <!-- Hero / Formulário -->
-  <main class="pt-24 flex flex-col items-center px-4">
-    <section class="bg-pink-300 rounded-xl shadow-lg p-6 w-full max-w-md mb-12">
-      <h2 class="text-2xl font-bold mb-4 text-gray-800 text-center">Cadastre o Livro que Deseja Doar</h2>
-
-      <form id="formLivro" action="https://docs.google.com/forms/d/e/SEU_ID_DO_FORM/formResponse" method="POST" target="_blank" class="flex flex-col gap-4">
-        <!-- Título do Livro -->
-        <input
-          type="text"
-          name="entry.123456"
-          placeholder="Ex: Dom Casmurro"
-          required
-          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
-        />
-        <!-- Autor -->
-        <input
-          type="text"
-          name="entry.654321"
-          placeholder="Ex: Machado de Assis"
-          required
-          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
-        />
-        <!-- Nome do Doador -->
-        <input
-          type="text"
-          name="entry.987654"
-          placeholder="Ex: Maria dos Santos"
-          required
-          class="rounded-lg h-12 p-4 placeholder-gray-500 focus:outline-none"
-        />
-        <button type="submit" class="bg-pink-500 hover:bg-pink-600 text-white font-bold rounded-lg h-12 transition">
-          Cadastrar Livro
-        </button>
-      </form>
-    </section>
-
-    <!-- Livros Disponíveis -->
-    <section class="w-full max-w-md">
-      <h2 class="text-2xl font-bold mb-4 text-center text-pink-500">Livros Disponíveis</h2>
-      <ul id="livros" class="flex flex-col gap-2 text-gray-700 text-center">
-        <!-- Livros adicionados dinamicamente -->
-      </ul>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="mt-12 py-6 text-center text-gray-500">
-    <p>&copy; 2025 Estante Solidária. Todos os direitos reservados.</p>
-  </footer>
-
-  <!-- JavaScript para atualizar a lista instantaneamente -->
-  <script>
-    const form = document.getElementById('formLivro');
-    const listaLivros = document.getElementById('livros');
-
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // Evita o reload da página
-
-      // Pega os valores do formulário
-      const titulo = form.elements['entry.123456'].value;
-      const autor = form.elements['entry.654321'].value;
-      const doador = form.elements['entry.987654'].value;
-
-      // Cria o item da lista
-      const li = document.createElement('li');
-      li.className = "bg-white rounded-lg shadow p-2";
-      li.textContent = `${titulo} — ${autor} (Doador: ${doador})`;
-
-      // Adiciona na lista
-      listaLivros.appendChild(li);
-
-      // Limpa o formulário
-      form.reset();
-
-      // Envia os dados para o Google Forms
-      form.submit();
-    });
-  </script>
-
+  </div>
 </body>
 </html>
